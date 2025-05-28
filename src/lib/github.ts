@@ -1,6 +1,8 @@
 import { db } from "../server/db";
 import {Octokit} from "octokit";
-
+import axios  from "axios"
+import { aiSummariseCommit } from "./gemini";
+ 
 export const octokit =new Octokit({
   auth: process.env.GITHUB_TOKEN,   
 });
@@ -53,10 +55,54 @@ export const pollCommits= async (projectId:string)=>{
 
     console.log("Unprocessed commits:", unprocessedCommits);
 
-    return unprocessedCommits;
+    const summaryResponeses=  await Promise.allSettled(unprocessedCommits.map(commit=>{
+        return summariseCommit(githubUrl,commit.commitHash);
+    }))
+
+    const summaries=summaryResponeses.map((response)=>{
+            if(response.status==='fulfilled'){
+                return response.value
+            }
+
+            return ""
+    })
+
+    const commits= await db.commit.createMany({
+
+        data:summaries.map((summary,index)=>{
+            console.log(`processing commits ${index}`)
+            return {
+                projectId:projectId,
+                commitHash: unprocessedCommits[index]!.commitHash,
+                commitMessage:unprocessedCommits[index]!.commitMessage,
+                commitAuthorName:unprocessedCommits[index]!.commitAuthorAvatar,
+                commitAuthorAvatar:unprocessedCommits[index]!.commitAuthorAvatar,
+                commitDate:unprocessedCommits[index]!.commitDate,
+                summary
+
+
+            }
+        })
+
+        
+    })
+
+    return commits;
 
 
 
+}
+
+async function summariseCommit(githubUrl:string ,commitHash:string){
+    //get the diff and then pass the diff into ai
+
+    const {data}=await axios.get(`${githubUrl}/commit/${commitHash}.diff`, {
+        headers:{
+            Accept:'application/vnd.github.v3.diff'
+        }
+    })
+
+    return await aiSummariseCommit(data);
 }
 
 async function filterUnprocessedCommits(projectId:string, commitHashes:Response[]){
@@ -90,4 +136,4 @@ async function fetchProjectGithubUrl(projectId: string) {
 
 
 
-await pollCommits("cmb7gputt0000v180vpmmtk5n").then(console.log)
+// await pollCommits("cmb7gputt0000v180vpmmtk5n").then(console.log)
