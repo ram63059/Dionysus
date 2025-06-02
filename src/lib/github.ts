@@ -28,7 +28,7 @@ export const getCommitHashes=async (githubUrl: string): Promise<Response[]> => {
 
     const {data} = await octokit.rest.repos.listCommits({
        owner,
-       repo
+       repo 
        
     })
 
@@ -101,6 +101,7 @@ async function summariseCommit(githubUrl:string ,commitHash:string){
             Accept:'application/vnd.github.v3.diff'
         }
     })
+
 
     return await aiSummariseCommit(data);
 }

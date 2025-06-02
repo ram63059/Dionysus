@@ -24,14 +24,14 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <ClerkProvider>
-
+    
     <html lang="en" className={`${geist.variable}`}>
       <body>
+      <ClerkProvider>
         <TRPCReactProvider>{children}</TRPCReactProvider>
         <Toaster richColors />
+    </ClerkProvider>
       </body>
     </html>
-    </ClerkProvider>
   );
 }

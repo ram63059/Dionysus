@@ -134,3 +134,40 @@
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;     /* Firefox */
 }
+
+/* Default: hidden scrollbar */
+.scrollbar-hover::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* On hover: show slim scrollbar */
+.scrollbar-hover:hover::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-hover:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.5); /* change as needed */
+  border-radius: 8px;
+}
+
+.scrollbar-hover:hover::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-hover::-webkit-scrollbar-button {
+  display: none;
+  height: 0;
+  width: 0;
+}
+
+/* Firefox support */
+.scrollbar-hover {
+  scrollbar-width: none; /* Default hidden */
+}
+
+.scrollbar-hover:hover {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 100, 100, 0.5) transparent;
+}
