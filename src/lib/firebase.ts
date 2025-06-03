@@ -7,12 +7,7 @@
 
     // Your web app's Firebase configuration
     const firebaseConfig = {
-    apiKey: "AIzaSyDcTaX6AAjPkwBVAZCgCznvIeJvswJi8mA",
-    authDomain: "dionysus-62016.firebaseapp.com",
-    projectId: "dionysus-62016",
-    storageBucket: "dionysus-62016.firebasestorage.app",
-    messagingSenderId: "262860879478",
-    appId: "1:262860879478:web:9c710d476c805a2f439157"
+   
     };
 
 
