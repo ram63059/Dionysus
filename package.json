@@ -21,6 +21,7 @@
     "start-github": "node --import \"data:text/javascript,import { register } from 'node:module'; import { pathToFileURL } from 'node:url'; register('ts-node/esm', pathToFileURL('./'));\" src/lib/github.ts",
     "start-gemini": "node --import \"data:text/javascript,import { register } from 'node:module'; import { pathToFileURL } from 'node:url'; register('ts-node/esm', pathToFileURL('./'));\" src/lib/gemini.ts",
     "start-github-loader": "node --import \"data:text/javascript,import { register } from 'node:module'; import { pathToFileURL } from 'node:url'; register('ts-node/esm', pathToFileURL('./'));\" src/lib/github-loader.ts",
+    "start-assembly": "node --import \"data:text/javascript,import { register } from 'node:module'; import { pathToFileURL } from 'node:url'; register('ts-node/esm', pathToFileURL('./'));\" src/lib/assembly.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
