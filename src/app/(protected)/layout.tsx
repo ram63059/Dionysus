@@ -29,7 +29,7 @@ const SidebarLayout = ({ children }:Props) => {
 
             {/* Main content */}
 
-            <div className='border-sidebar-border bg-sidebar border shadow rounded-md overflow-y-scroll scrollbar-hide  h-[calc(100vh-6rem)]  px-4 '>
+            <div className='border-sidebar-border bg-sidebar p-3 border shadow rounded-md overflow-y-scroll scrollbar-hide  h-[calc(100vh-6rem)]  px-4 '>
                 {children}
             </div>
         </main>
