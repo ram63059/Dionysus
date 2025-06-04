@@ -2,9 +2,6 @@
 
 *An AI-powered project management and code analysis platform*
 
-[![License](https://img.shields.io/github/license/ram63059/Dionysus?style=default&logo=opensourceinitiative&logoColor=white&color=0080ff)](LICENSE)
-[![Last Commit](https://img.shields.io/github/last-commit/ram63059/Dionysus?style=default&logo=git&logoColor=white&color=0080ff)](https://github.com/ram63059/Dionysus/commits)
-[![Top Language](https://img.shields.io/github/languages/top/ram63059/Dionysus?style=default&color=0080ff)](https://github.com/ram63059/Dionysus)
 
 ## Table of Contents
 
@@ -19,7 +16,7 @@
   - [Usage](#usage)
 - [API Endpoints](#api-endpoints)
 - [Contributing](#contributing)
-- [License](#license)
+
 
 ## Overview
 
@@ -40,12 +37,12 @@ Dionysus is a comprehensive project management platform that leverages AI to ana
 
 - **Frontend**: Next.js 14, React, TypeScript, Tailwind CSS
 - **Backend**: tRPC, Prisma ORM
-- **Database**: PostgreSQL (via Supabase)
+- **Database**: PostgreSQL 
 - **Authentication**: Clerk
 - **AI/ML**: Google Gemini, AssemblyAI
 - **Payments**: Stripe
-- **Storage**: Firebase
-- **Deployment**: Vercel (recommended)
+- **Storage**: Supabase
+- **Deployment**: Vercel 
 
 ## Project Structure
 
@@ -122,10 +119,6 @@ GITHUB_TOKEN="your_github_personal_access_token"
 STRIPE_SECRET_KEY="your_stripe_secret_key"
 STRIPE_WEBHOOK_SECRET="your_stripe_webhook_secret"
 
-# Firebase
-FIREBASE_PROJECT_ID="your_firebase_project_id"
-FIREBASE_PRIVATE_KEY="your_firebase_private_key"
-FIREBASE_CLIENT_EMAIL="your_firebase_client_email"
 
 # Supabase
 SUPABASE_URL="your_supabase_url"
@@ -200,10 +193,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support
 
-- 📧 Email: [support@dionysus.dev](mailto:support@dionysus.dev)
 - 💬 [GitHub Discussions](https://github.com/ram63059/Dionysus/discussions)
 - 🐛 [Report Issues](https://github.com/ram63059/Dionysus/issues)
 
 ---
 
-Built with ❤️ by the Dionysus team
+
